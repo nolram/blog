@@ -1,0 +1,22 @@
+colorScheme = "ocean"
+defaultAppearance = "dark"
+autoSwitchAppearance = false
+
+showAuthor = true
+showBreadcrumbs = true
+showDate = true
+showReadingTime = true
+showTableOfContents = true
+showSummary = true
+showTaxonomies = true
+
+[homepage]
+  layout = "page"
+
+[article]
+  showDate = true
+  showAuthor = true
+  showReadingTime = true
+  showTableOfContents = true
+  showTaxonomies = true
+  showWordCount = false

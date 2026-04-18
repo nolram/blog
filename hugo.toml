@@ -1,0 +1,28 @@
+baseURL = "https://blog.nolram.dev"
+languageCode = "pt-br"
+defaultContentLanguage = "pt-br"
+title = "nolram"
+
+enableRobotsTXT = true
+enableEmoji = true
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    style = "monokai"
+    lineNos = false
+    codeFences = true
+    guessSyntax = true
+
+[module]
+  [[module.imports]]
+    path = "github.com/nunocoracao/blowfish/v2"
