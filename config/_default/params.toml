@@ -1,6 +1,6 @@
-colorScheme = "ocean"
+colorScheme = "slate"             # mais neutro, imagens se destacam mais
 defaultAppearance = "dark"
-autoSwitchAppearance = false
+autoSwitchAppearance = true       # respeita preferência do sistema do leitor
 
 showAuthor = true
 showBreadcrumbs = true
@@ -15,7 +15,7 @@ showTaxonomies = true
   showRecent = true
   showRecentItems = 6
   showMoreLink = true
-  showMoreLinkDest = "/astrophotography"
+  showMoreLinkDest = "/posts"     # mais neutro enquanto o blog está nascendo
   cardView = true
   cardViewScreenWidth = false
 
@@ -26,3 +26,4 @@ showTaxonomies = true
   showTableOfContents = true
   showTaxonomies = true
   showWordCount = false
+  showEdit = false                # evita expor a URL do repo publicamente

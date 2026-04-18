@@ -2,4 +2,8 @@
 title: "nolram"
 ---
 
-Bem-vindo ao meu blog pessoal. Aqui documento astrofotografia, projetos de homelab e tecnologia, e outros assuntos que me interessam.
+Marlon. Full Stack engineer, homelab tinkerer, astrofotógrafo amador.
+
+Aqui registro o que construo, o que observo e o que aprendo —
+infraestrutura, IA local, automação, e imagens do céu que capturei
+do sul do Brasil.

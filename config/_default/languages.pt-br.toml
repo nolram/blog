@@ -3,12 +3,16 @@ weight = 1
 title = "nolram"
 
 [params]
-  description = "Astrofotografia, projetos e outros assuntos."
+  description = "Astrofotografia, homelab e projetos técnicos — do sul do Brasil."
 
 [params.Author]
   name = "Marlon"
-  headline = "Astrofotógrafo e entusiasta de tecnologia"
-  bio = "Capturo o céu profundo com telescópio e documento projetos de homelab, desenvolvimento e automações."
+  image = "img/author.jpg"
+  headline = "Full Stack engineer. Astrofotógrafo amador. Curioso compulsivo."
+  bio = "Moro no sul do Brasil, trabalho com desenvolvimento de software, infraestrutura e DevOps, e nas noites limpas aponto telescópios para o céu profundo. Este blog documenta os dois lados: clusters K3s, IA local e automações de um lado — nebulosas e galáxias do outro."
   links = [
-    { github = "https://github.com/nolram" }
+    { github = "https://github.com/nolram" },
+    { linkedin = "https://www.linkedin.com/in/marlonbaptista/" },
+    { instagram = "https://www.instagram.com/marlonquadros" },
+    { email = "mailto:marlonbquadros@gmail.com" }
   ]

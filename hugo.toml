@@ -5,10 +5,18 @@ title = "nolram"
 
 enableRobotsTXT = true
 enableEmoji = true
+summarylength = 30               # controla tamanho do resumo nos cards
+
+[pagination]
+  pagerSize = 8                  # 8 cards por página é mais adequado com imagens
 
 [taxonomies]
   tag = "tags"
   category = "categories"
+
+[sitemap]
+  changefreq = "weekly"
+  priority = 0.5
 
 [outputs]
   home = ["HTML", "RSS", "JSON"]
@@ -16,12 +24,14 @@ enableEmoji = true
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]
-      unsafe = true
+      unsafe = true              # necessário para shortcodes HTML e embeds
   [markup.highlight]
     style = "monokai"
     lineNos = false
+    lineNumbersInTable = false
     codeFences = true
     guessSyntax = true
+    noClasses = false            # melhor integração com temas escuros
 
 [module]
   [[module.imports]]

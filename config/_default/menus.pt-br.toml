@@ -1,11 +1,11 @@
 [[main]]
-  name = "Astrofotografia"
-  pageRef = "/astrophotography"
+  name = "Projetos"
+  pageRef = "/projects"
   weight = 10
 
 [[main]]
-  name = "Projetos"
-  pageRef = "/projects"
+  name = "Astrofotografia"
+  pageRef = "/astrophotography"
   weight = 20
 
 [[main]]
