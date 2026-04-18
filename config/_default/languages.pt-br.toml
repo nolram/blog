@@ -3,5 +3,12 @@ weight = 1
 title = "nolram"
 
 [params]
-  author = "Marlon"
   description = "Astrofotografia, projetos e outros assuntos."
+
+[params.Author]
+  name = "Marlon"
+  headline = "Astrofotógrafo e entusiasta de tecnologia"
+  bio = "Capturo o céu profundo com telescópio e documento projetos de homelab, desenvolvimento e automações."
+  links = [
+    { github = "https://github.com/nolram" }
+  ]

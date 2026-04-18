@@ -11,7 +11,13 @@ showSummary = true
 showTaxonomies = true
 
 [homepage]
-  layout = "page"
+  layout = "profile"
+  showRecent = true
+  showRecentItems = 6
+  showMoreLink = true
+  showMoreLinkDest = "/astrophotography"
+  cardView = true
+  cardViewScreenWidth = false
 
 [article]
   showDate = true
