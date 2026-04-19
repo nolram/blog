@@ -18,7 +18,7 @@ capture:
   total_integration: ""
   bortle: 7
 cover:
-  image: "ic434_v1.jpg"
+  image: "ic434_v1.webp"
   alt: "IC 434 Nebulosa Cabeça de Cavalo em narrowband"
 ---
 
@@ -30,10 +30,10 @@ O ASKAR FRA400 é compacto e abre para f/5.6 nativamente — com redutor 0.7x va
 
 ---
 
-![IC 434 — versão 1](ic434_v1.jpg)
+![IC 434 — versão 1](ic434_v1.webp)
 
-![IC 434 — versão 2](ic434_v2.png)
+![IC 434 — versão 2](ic434_v2.webp)
 
-![IC 434 — versão 3](ic434_v3.jpg)
+![IC 434 — versão 3](ic434_v3.webp)
 
-![IC 434 — versão 4](ic434_v4.png)
+![IC 434 — versão 4](ic434_v4.webp)

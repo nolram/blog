@@ -24,7 +24,7 @@ capture:
   total_integration: ""
   bortle: 0
 cover:
-  image: "askar_and_canon_v2.jpg"
+  image: "askar_and_canon_v2.webp"
   alt: "Setup de astrofotografia sob o céu do hemisfério sul"
 ---
 
@@ -44,9 +44,9 @@ O FRA400 é meu telescópio principal para Deep Sky. Trata-se de um refrator apo
 - Compatível com redutor 0.7x
 - Ideal para nebulosas em banda estreita e galáxias
 
-![ASKAR FRA400 com câmera acoplada](askar_and_canon_v1.jpg)
+![ASKAR FRA400 com câmera acoplada](askar_and_canon_v1.webp)
 
-![ASKAR FRA400](askar_v1.jpg)
+![ASKAR FRA400](askar_v1.webp)
 
 ---
 
@@ -60,9 +60,9 @@ O Newtoniano de 150mm de abertura e 750mm de distância focal é meu instrumento
 - Maior poder de coleta de luz para objetos difusos
 - Requer colimação regular
 
-![Newtoniano 150mm](newtonian_v2.jpg)
+![Newtoniano 150mm](newtonian_v2.webp)
 
-![Newtoniano preparado para observação solar](newtonian_solar_v1.jpg)
+![Newtoniano preparado para observação solar](newtonian_solar_v1.webp)
 
 ---
 

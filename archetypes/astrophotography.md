@@ -20,4 +20,6 @@ capture:
 cover:
   image: ""
   alt: ""
+license: "CC BY-NC-ND 4.0"
+license_url: "https://creativecommons.org/licenses/by-nc-nd/4.0/"
 ---

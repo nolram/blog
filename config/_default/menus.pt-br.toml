@@ -12,3 +12,8 @@
   name = "Misc"
   pageRef = "/misc"
   weight = 30
+
+[[footer]]
+  name = "Licença"
+  url = "/license"
+  weight = 10

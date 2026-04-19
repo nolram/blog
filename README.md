@@ -70,6 +70,48 @@ Para referenciar imagens dentro do post, use o caminho relativo:
 ![Legenda da imagem](ngc7000-crop.jpg)
 ```
 
+## Compressão automática de imagens
+
+Um pre-commit hook converte automaticamente imagens PNG/JPG maiores que **2MB** para **WebP** antes do commit, usando `imagemagick`.
+
+**Requisito:** `imagemagick` instalado localmente.
+
+```bash
+# Ubuntu/Debian
+sudo apt install imagemagick
+
+# macOS
+brew install imagemagick
+```
+
+Se o `imagemagick` não estiver instalado, o hook emite um aviso e **não bloqueia** o commit.
+
+O arquivo original é removido e substituído pelo `.webp`. Se o `index.md` do post referenciar a imagem pelo nome original, atualize o caminho após a conversão:
+
+```markdown
+<!-- antes -->
+![NGC 7000](ngc7000.png)
+
+<!-- depois -->
+![NGC 7000](ngc7000.webp)
+```
+
+> O hook vive em `.git/hooks/pre-commit` e não é versionado pelo git. Em uma nova clonagem,
+> copie o arquivo de referência do repositório e torne-o executável:
+> ```bash
+> chmod +x .git/hooks/pre-commit
+> ```
+
+## Licença
+
+As imagens astronômicas publicadas neste blog estão sob
+[CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/) —
+compartilhamento permitido com atribuição, sem uso comercial e sem modificações.
+
+Os textos e código estão sob [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).
+
+Veja a [página de licença](https://blog.nolram.dev/license) para detalhes completos.
+
 ## Estrutura do repositório
 
 ```
