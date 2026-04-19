@@ -1,0 +1,19 @@
+[[main]]
+  name = "Projects"
+  pageRef = "/projects"
+  weight = 10
+
+[[main]]
+  name = "Astrophotography"
+  pageRef = "/astrophotography"
+  weight = 20
+
+[[main]]
+  name = "Misc"
+  pageRef = "/misc"
+  weight = 30
+
+[[footer]]
+  name = "License"
+  url = "/license"
+  weight = 10

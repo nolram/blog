@@ -1,6 +1,7 @@
 baseURL = "https://blog.nolram.dev"
 languageCode = "pt-br"
 defaultContentLanguage = "pt-br"
+defaultContentLanguageInSubdir = false
 title = "nolram"
 
 enableRobotsTXT = true

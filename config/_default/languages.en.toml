@@ -1,0 +1,20 @@
+languageName = "English"
+weight = 2
+title = "nolram"
+
+[params]
+  displayName = "EN"
+  isoCode = "en"
+  description = "Astrophotography, homelab and technical projects — from southern Brazil."
+
+[params.Author]
+  name = "Marlon"
+  image = "img/author.jpg"
+  headline = "Full Stack engineer. Amateur astrophotographer. Compulsive curious."
+  bio = "I live in southern Brazil, work with software development, infrastructure and DevOps, and on clear nights I point telescopes at deep sky objects. This blog documents both sides: K3s clusters, local AI and automation on one side — nebulae and galaxies on the other."
+  links = [
+    { github = "https://github.com/nolram" },
+    { linkedin = "https://www.linkedin.com/in/marlonbaptista/" },
+    { instagram = "https://www.instagram.com/marlonquadros" },
+    { email = "mailto:marlonbquadros@gmail.com" }
+  ]
