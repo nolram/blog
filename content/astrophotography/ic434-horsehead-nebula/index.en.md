@@ -30,6 +30,8 @@ The ASKAR FRA400 is compact and opens to f/5.6 natively — with the 0.7x focal 
 
 ---
 
+{{< carousel images="/*" interval="2500" >}}
+
 ![IC 434 — version 1](ic434_v1.webp)
 
 ![IC 434 — version 2](ic434_v2.webp)

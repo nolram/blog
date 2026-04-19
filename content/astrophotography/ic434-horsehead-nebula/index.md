@@ -30,6 +30,8 @@ O ASKAR FRA400 é compacto e abre para f/5.6 nativamente — com redutor 0.7x va
 
 ---
 
+{{< carousel images="/*" interval="2500" >}}
+
 ![IC 434 — versão 1](ic434_v1.webp)
 
 ![IC 434 — versão 2](ic434_v2.webp)
