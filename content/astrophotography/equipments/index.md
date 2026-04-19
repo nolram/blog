@@ -24,7 +24,7 @@ capture:
   total_integration: ""
   bortle: 0
 cover:
-  image: "askar_and_canon_v2.webp"
+  image: "cover.webp"
   alt: "Setup de astrofotografia sob o céu do hemisfério sul"
 ---
 

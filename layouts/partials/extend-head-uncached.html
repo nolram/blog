@@ -1,0 +1,35 @@
+{{- $pageImages := .Resources.ByType "image" -}}
+{{- $coverImage := "" -}}
+{{- range slice "*featured*" "*cover*" "*thumbnail*" -}}
+  {{- if not $coverImage -}}
+    {{- with $pageImages.GetMatch . -}}
+      {{- $coverImage = . -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if $coverImage }}
+<meta name="twitter:card" content="summary_large_image">
+{{- end }}
+
+{{- if and .IsPage (not .IsHome) }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "{{ .Title | safeJS }}",
+  {{ if $coverImage }}"image": "{{ $coverImage.Permalink }}",{{ end }}
+  "author": {
+    "@type": "Person",
+    "name": "Marlon Baptista Quadros",
+    "url": "https://blog.nolram.dev",
+    "sameAs": [
+      "https://github.com/nolram",
+      "https://www.linkedin.com/in/marlonbaptista/",
+      "https://www.instagram.com/marlonquadros"
+    ]
+  },
+  "url": "{{ .Permalink }}"
+}
+</script>
+{{- end }}

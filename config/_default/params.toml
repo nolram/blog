@@ -2,6 +2,9 @@ colorScheme = "slate"             # mais neutro, imagens se destacam mais
 defaultAppearance = "dark"
 autoSwitchAppearance = true       # respeita preferência do sistema do leitor
 
+robots = "index, follow"
+enableStructuredBreadcrumbs = true
+
 showAuthor = true
 showBreadcrumbs = true
 showDate = true

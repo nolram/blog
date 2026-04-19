@@ -159,6 +159,55 @@ git push
 
 Deploy automático em ~2 min.
 
+## SEO
+
+### Regras obrigatórias para cada post
+
+- **Imagem de capa**: nomear o arquivo como `cover.webp` (ou `cover.jpg`) dentro da pasta do
+  post. O Blowfish detecta o padrão `*cover*` automaticamente para gerar `og:image` e
+  `twitter:image`. Um nome arbitrário como `ic434_v1.webp` não gera os metadados sociais.
+- **`description`**: sempre preencher, entre 70 e 160 caracteres. É o texto exibido no
+  resultado de busca do Google e no preview de links.
+- **`cover.alt`**: sempre preencher com descrição real da imagem — afeta acessibilidade e
+  indexação no Google Images.
+- **Alts de imagens inline**: usar descrições específicas, não genéricas
+  (`"IC 434 Nebulosa Cabeça de Cavalo em narrowband Hα+OIII"`, não `"versão 1"`).
+- **`title`**: sem truncamento — o Google exibe até ~60 caracteres no resultado.
+
+### Estrutura SEO já configurada
+
+- `og:image` e `twitter:card = "summary_large_image"` — automáticos quando a capa se chama
+  `cover.*`
+- `BreadcrumbList` JSON-LD — ativo via `enableStructuredBreadcrumbs = true` em `params.toml`
+- `BlogPosting` JSON-LD com imagem e `author.sameAs` — via
+  `layouts/partials/extend-head-uncached.html`
+- Sitemap em `/sitemap.xml`, submetido ao Google Search Console (verificação via DNS no
+  Cloudflare)
+- `robots.txt` gerado automaticamente com `enableRobotsTXT = true`
+
+### Pendências conhecidas
+
+- `defaultSocialImage`: criar `assets/img/social-default.jpg` (1200×630px) e adicionar
+  `defaultSocialImage = "img/social-default.jpg"` em `params.toml` para que páginas de
+  listagem e a homepage tenham `og:image`
+- Ícones PWA: `android-chrome-192x192.png` e `android-chrome-512x512.png` não existem em
+  `/static/` — gerar via realfavicongenerator.net
+
+## Repositório público — segurança
+
+**Este repositório é público.** Tudo que for commitado fica visível para qualquer pessoa.
+
+O que é seguro commitar:
+- Token de verificação do Google Search Console (`verification.google`) — é público por design,
+  só prova ownership do domínio
+- Chaves públicas de analytics sem privilégios (ex: measurement ID do GA4)
+
+O que **nunca** deve ser commitado:
+- Tokens OAuth, service account JSON, API keys com permissões de escrita
+- Senhas, secrets de CI/CD (usar GitHub Secrets no repositório)
+- Arquivos `.env` com credenciais
+- Tokens de acesso pessoal (PAT) do GitHub ou qualquer outro serviço
+
 ## O que NÃO fazer
 
 - Não criar arquivos em `/static/` para imagens de posts — usar Page Bundle
@@ -166,6 +215,7 @@ Deploy automático em ~2 min.
 - Não instalar o tema como submodule — já está como Hugo Module em `hugo.toml`
 - Não alterar `deploy.yml` sem testar localmente antes
 - Não usar `hugo new` sem especificar a seção correta (archetype errado)
+- Não commitar credenciais, tokens de API ou secrets — repositório é público
 
 ## Rodar localmente
 

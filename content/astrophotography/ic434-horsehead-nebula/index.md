@@ -18,7 +18,7 @@ capture:
   total_integration: ""
   bortle: 7
 cover:
-  image: "ic434_v1.webp"
+  image: "cover.webp"
   alt: "IC 434 Nebulosa Cabeça de Cavalo em narrowband"
 ---
 

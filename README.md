@@ -102,6 +102,51 @@ O arquivo original é removido e substituído pelo `.webp`. Se o `index.md` do p
 > chmod +x .git/hooks/pre-commit
 > ```
 
+## SEO
+
+### Checklist por post
+
+- [ ] Imagem de capa nomeada `cover.webp` (ou `cover.jpg`) na pasta do post — necessário para
+      gerar `og:image` e preview de links no WhatsApp, LinkedIn e Twitter/X
+- [ ] `description` preenchida no frontmatter (70–160 caracteres)
+- [ ] `cover.alt` com descrição real da imagem
+- [ ] Alts de imagens inline descritivos (não "versão 1", "foto 2", etc.)
+- [ ] `title` com até ~60 caracteres para não ser truncado no Google
+
+### O que já está configurado
+
+| Recurso | Estado |
+|---|---|
+| `og:image` / `twitter:image` | Automático — requer `cover.*` no page bundle |
+| `twitter:card = "summary_large_image"` | Ativo |
+| BreadcrumbList JSON-LD | Ativo (`enableStructuredBreadcrumbs = true`) |
+| BlogPosting JSON-LD com imagem e autor | Via `layouts/partials/extend-head-uncached.html` |
+| Sitemap | `/sitemap.xml` — submetido ao Google Search Console |
+| robots.txt | Gerado automaticamente pelo Hugo |
+| Verificação Google Search Console | Via DNS (Cloudflare) |
+
+### Pendências
+
+- Criar `assets/img/social-default.jpg` (1200×630px) e adicionar
+  `defaultSocialImage = "img/social-default.jpg"` em `config/_default/params.toml` para que
+  a homepage e páginas de listagem também tenham `og:image`
+- Gerar ícones PWA (`android-chrome-192x192.png`, `android-chrome-512x512.png`) via
+  [realfavicongenerator.net](https://realfavicongenerator.net) e colocar em `/static/`
+
+## Segurança — repositório público
+
+**Este repositório é público.** Todo commit fica visível permanentemente.
+
+**Pode commitar com segurança:**
+- Token de verificação do Google Search Console — público por design
+- Measurement IDs de analytics (ex: `G-XXXXXXXXXX` do GA4)
+
+**Nunca commitar:**
+- Tokens OAuth, service account JSON, API keys com permissões de escrita
+- Senhas e secrets de CI/CD → usar [GitHub Secrets](https://docs.github.com/actions/security-guides/using-secrets-in-github-actions)
+- Arquivos `.env` com credenciais
+- Tokens de acesso pessoal (PAT) do GitHub ou qualquer outro serviço
+
 ## Licença
 
 As imagens astronômicas publicadas neste blog estão sob
