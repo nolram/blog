@@ -1,7 +1,7 @@
 ---
 title: "NGC 5128 — Centaurus A"
 date: 2026-04-19T21:00:37-03:00
-draft: true
+draft: false
 description: "Centaurus A registrada do céu urbano de Porto Alegre com 59 frames — faixa de poeira, núcleo AGN e campo estelar rico em uma das galáxias mais fascinantes do céu austral."
 tags: ["ngc5128", "centaurus a", "galáxia", "deep sky", "asi533mc", "siril", "l-pro", "hemisfério sul"]
 categories: ["astrophotography"]
