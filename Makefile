@@ -42,11 +42,12 @@ endif
 HUGO_ARCHIVE := hugo_extended_$(HUGO_VERSION)_$(HUGO_OS_ARCH).tar.gz
 HUGO_URL := https://github.com/gohugoio/hugo/releases/download/v$(HUGO_VERSION)/$(HUGO_ARCHIVE)
 
-.PHONY: help setup check-go install-go install-hugo ensure-login-path mod-download dev dev-wsl build clean
+.PHONY: help setup hooks check-go install-go install-hugo ensure-login-path mod-download dev dev-wsl build clean
 
 help:
 	@echo "Targets:"
-	@echo "  make setup         - install-go, install Hugo Extended $(HUGO_VERSION), go mod download"
+	@echo "  make setup         - install-go, install Hugo Extended $(HUGO_VERSION), go mod download, hooks"
+	@echo "  make hooks         - Configure git to use .githooks/ (run once after cloning)"
 	@echo "  make install-go    - Idempotent Go $(GO_VERSION) under $(GO_ROOT) (skips if Go $(GO_MIN)+ exists)"
 	@echo "  make check-go      - Verify Go $(GO_MIN)+ is available (required for Hugo Modules)"
 	@echo "  make install-hugo  - Download and install Hugo Extended only"
@@ -59,10 +60,14 @@ help:
 	@echo ""
 	@echo "Variables: HUGO_VERSION, GO_VERSION, GO_MIN, GO_ROOT, INSTALL_DIR, HUGO, HUGO_DEV_FLAGS"
 
-setup: install-go install-hugo mod-download
+setup: install-go install-hugo mod-download hooks
 	@echo ""
 	@echo "Setup finished. Open a new shell, or run: source ~/.bashrc  (or ~/.profile)"
 	@PATH="$(TOOL_PATH):$$PATH" command -v hugo >/dev/null && PATH="$(TOOL_PATH):$$PATH" "$(HUGO)" version
+
+hooks:
+	git config core.hooksPath .githooks
+	@echo "Git hooks configurados: .githooks/"
 
 check-go:
 	@PATH="$(TOOL_PATH):$$PATH"; \

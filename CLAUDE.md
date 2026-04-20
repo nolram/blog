@@ -224,6 +224,20 @@ hugo server -D    # com drafts, live reload em localhost:1313
 hugo server       # sem drafts (simula produção)
 ```
 
+## Após clonar o repositório
+
+O pre-commit hook está versionado em `.githooks/`. É necessário configurar o git
+para usá-lo uma vez por clone:
+
+```bash
+make hooks
+# ou manualmente:
+git config core.hooksPath .githooks
+```
+
+O hook converte PNG/JPG/JPEG acima de 2MB para WebP e embute metadados de copyright.
+Requer `imagemagick` (`sudo apt install imagemagick`).
+
 ## Configuração do tema
 
 - `hugo.toml` — configuração base

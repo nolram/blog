@@ -1,0 +1,65 @@
+#!/usr/bin/env bash
+# Converte imagens grandes (PNG/JPG/JPEG) para WebP e embute metadados de
+# copyright durante a conversão. Requer imagemagick. Se não estiver instalado,
+# emite warning e continua sem bloquear o commit.
+
+set -euo pipefail
+
+THRESHOLD_KB=2048  # imagens acima de 2MB são convertidas
+QUALITY=85
+AUTHOR="Marlon Baptista Quadros"
+COPYRIGHT="© $(date +%Y) Marlon Baptista Quadros. CC BY-NC-ND 4.0 — https://creativecommons.org/licenses/by-nc-nd/4.0/"
+
+if ! command -v convert &>/dev/null; then
+  echo "⚠  imagemagick não encontrado — conversão de imagens ignorada." >&2
+  echo "   Instale com: sudo apt install imagemagick" >&2
+  exit 0
+fi
+
+staged_images=$(git diff --cached --name-only --diff-filter=A | grep -Ei '\.(png|jpg|jpeg)$' || true)
+
+if [[ -z "$staged_images" ]]; then
+  exit 0
+fi
+
+converted=()
+
+while IFS= read -r file; do
+  [[ -f "$file" ]] || continue
+
+  size_kb=$(du -k "$file" | cut -f1)
+  if (( size_kb < THRESHOLD_KB )); then
+    continue
+  fi
+
+  webp_file="${file%.*}.webp"
+  echo "🔄  Convertendo $file (${size_kb}KB) → $webp_file"
+
+  if convert "$file" \
+      -quality $QUALITY \
+      -set copyright "$COPYRIGHT" \
+      -set Author "$AUTHOR" \
+      "$webp_file"; then
+    webp_kb=$(du -k "$webp_file" | cut -f1)
+    echo "   ✓  ${size_kb}KB → ${webp_kb}KB (copyright embutido)"
+
+    git add "$webp_file"
+    git rm --cached "$file" 2>/dev/null || true
+    rm -f "$file"
+
+    converted+=("$file → $webp_file")
+  else
+    echo "⚠  Falha ao converter $file — mantendo original." >&2
+  fi
+done <<< "$staged_images"
+
+if (( ${#converted[@]} > 0 )); then
+  echo ""
+  echo "📦  Imagens convertidas para WebP:"
+  for entry in "${converted[@]}"; do
+    echo "   $entry"
+  done
+  echo ""
+  echo "⚠  Os arquivos originais foram removidos e substituídos pelos .webp."
+  echo "   Atualize referências no index.md se necessário."
+fi
