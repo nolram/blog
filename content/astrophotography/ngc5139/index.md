@@ -1,7 +1,7 @@
 ---
 title: "NGC 5139 — Omega Centauri"
 date: 2026-04-19T21:17:51-03:00
-draft: true
+draft: false
 description: "O maior e mais massivo aglomerado globular da Via Láctea, capturado do céu urbano de Porto Alegre com 147 frames e processado integralmente no Siril 1.4."
 tags: ["aglomerado globular", "ngc5139", "omega centauri", "siril", "asi533mc", "deep sky", "L-Pro"]
 categories: ["astrophotography"]
