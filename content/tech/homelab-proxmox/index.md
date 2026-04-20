@@ -4,7 +4,7 @@ date: 2026-04-05T10:00:00-03:00
 draft: true
 description: "Como montei meu homelab com um servidor Proxmox VE, NAS com TrueNAS Scale, rede segmentada por VLANs e mais de 20 containers Docker gerenciados pelo Portainer."
 tags: ["homelab", "proxmox", "docker", "self-hosted", "linux"]
-categories: ["projects"]
+categories: ["tech"]
 tech_stack: ["Proxmox VE", "TrueNAS Scale", "Docker", "Portainer", "Traefik", "Cloudflare Tunnels", "Ansible"]
 github: "https://github.com/nolram/homelab"
 status: "in-progress"

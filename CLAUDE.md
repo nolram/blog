@@ -44,7 +44,7 @@ Localização habitual de captura: Rio Grande do Sul (Porto Alegre como base urb
 | Seção | Slug | Uso |
 |---|---|---|
 | Astrofotografia | `/astrophotography` | Imagens astronômicas com metadados de captura |
-| Projetos | `/projects` | Projetos técnicos, homelab, desenvolvimento |
+| Tech | `/tech` | Projetos técnicos, homelab, desenvolvimento |
 | Misc | `/misc` | Livros, viagens, pensamentos gerais |
 
 ## Como criar um novo post
@@ -54,7 +54,7 @@ Localização habitual de captura: Rio Grande do Sul (Porto Alegre como base urb
 hugo new astrophotography/nome-do-objeto/index.md
 
 # Projeto técnico
-hugo new projects/nome-do-projeto/index.md
+hugo new tech/nome-do-projeto/index.md
 
 # Misc
 hugo new misc/nome-do-post/index.md
@@ -103,7 +103,7 @@ cover:
 ---
 ```
 
-### projects
+### tech
 ```yaml
 ---
 title: ""
@@ -111,7 +111,7 @@ date: 2026-04-05T10:00:00-03:00
 draft: false
 description: ""
 tags: []
-categories: ["projects"]
+categories: ["tech"]
 tech_stack: []
 github: ""
 status: "completed"   # completed | in-progress | abandoned

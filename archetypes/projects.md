@@ -4,7 +4,7 @@ date: {{ .Date }}
 draft: true
 description: ""
 tags: []
-categories: ["projects"]
+categories: ["tech"]
 tech_stack: []
 github: ""
 status: "completed"

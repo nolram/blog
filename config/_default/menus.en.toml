@@ -1,6 +1,6 @@
 [[main]]
-  name = "Projects"
-  pageRef = "/projects"
+  name = "Tech"
+  pageRef = "/tech"
   weight = 10
 
 [[main]]

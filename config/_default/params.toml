@@ -3,6 +3,7 @@ defaultAppearance = "dark"
 autoSwitchAppearance = true       # respeita preferência do sistema do leitor
 defaultSocialImage = "img/social-default.jpg"
 robots = "index, follow"
+mainSections = ["astrophotography", "tech", "misc"]
 enableStructuredBreadcrumbs = true
 
 showAuthor = true
