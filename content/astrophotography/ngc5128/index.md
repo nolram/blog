@@ -18,14 +18,14 @@ capture:
   total_integration: ""
   bortle: 7
 cover:
-  image: "ngc5128_final.jpg"
+  image: "cover.webp"
   alt: "NGC 5128 — Centaurus A, galáxia elíptica com faixa de poeira característica, capturada de Porto Alegre"
 license: "CC BY-NC-ND 4.0"
 license_url: "https://creativecommons.org/licenses/by-nc-nd/4.0/"
 ---
 
 ## NGC 5128 — Centaurus A
-![ngc5128](ngc5128.jpg)
+![NGC 5128 — Centaurus A, galáxia elíptica com faixa de poeira](ngc5128.webp)
 
 Centaurus A é, sem dúvida, uma das galáxias mais fascinantes do céu austral. Localizada a aproximadamente 13 milhões de anos-luz de distância na constelação de Centaurus, ela carrega uma característica única que a torna imediatamente reconhecível: uma faixa de poeira escura que corta seu núcleo elíptico ao meio — vestígio de uma colisão galáctica ocorrida há milhões de anos.
 
