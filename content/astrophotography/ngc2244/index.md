@@ -79,6 +79,8 @@ Vale registrar uma lição aprendida aqui: tentar ancorar as sombras do canal ve
 
 ## O resultado
 
+![NGC 2244 — Nebulosa Roseta, versão final em banda estreita com filtro L-eXtreme](ngc2244_final.webp)
+
 Apesar das limitações, a imagem final me surpreendeu. A cavidade central ionizada pelo NGC 2244 ficou bem definida — aquele buraco escuro no coração da nebulosa, varrido pelos ventos estelares das estrelas OB do aglomerado, é uma das estruturas mais impressionantes do céu profundo. Os filamentos e pilares de gás ao redor da cavidade estão com bom detalhe para a integração disponível.
 
 A tonalidade quente — laranja/ferrugem predominando — é honesta com os dados. Com 23 frames e H-alpha dominando sobre o OIII, o bicolor clássico vermelho/azul da Roseta não emergiu com força. Mas a estrutura está lá.
@@ -99,7 +101,9 @@ A Roseta é um alvo para o qual eu pretendo voltar — dessa vez com anotações
 
 ## A primeira versão — quando eu não entendia o que estava fazendo
 
-Antes de chegar à imagem final desta revisita, existe uma versão mais antiga — a primeira vez que processei esses dados, logo após capturá-los. Guardo ela não por vaidade, mas porque ela conta uma história importante.
+Antes de chegar à imagem final desta revisita, existe uma versão mais antiga — a primeira vez que processei esses dados, logo após capturá-los.
+
+![NGC 2244 — Nebulosa Roseta, primeira tentativa de processamento com lógica broadband aplicada a dados de banda estreita](ngc2244_first_version.webp) Guardo ela não por vaidade, mas porque ela conta uma história importante.
 
 Naquela época, eu não entendia bem o comportamento do filtro L-eXtreme. Processei os dados como se fossem uma imagem broadband comum — stretch automático, ajustes de cor intuitivos, sem entender o que o filtro realmente estava capturando. O resultado foi uma imagem com fundo azul-acinzentado dominante, estruturas de H-alpha aparecendo em vermelho fragmentado nas bordas sem coesão, e o ruído do fundo sendo amplificado e interpretado equivocadamente como sinal OIII.
 
