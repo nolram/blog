@@ -64,4 +64,6 @@ No Affinity, o ajuste de cor foi mantido deliberadamente minimalista para respei
 
 ## Resultado
 
+![Nebulosa de Carina (NGC 3372) em banda estreita H-alpha e OIII, mostrando a estrutura em X com Eta Carinae ao centro](ngc_3372_img.webp)
+
 A estrutura em "X" característica de Carina está bem revelada, com os quatro braços de nebulosidade se abrindo a partir de Eta Carinae. Os filamentos escuros de poeira — pilares de formação estelar — aparecem com bom contraste contra a emissão H-alpha ao redor. Uma sessão futura com 60 a 80 frames deverá revelar com mais profundidade as extensões externas da nebulosa e os detalhes nos pilares mais afastados do centro.

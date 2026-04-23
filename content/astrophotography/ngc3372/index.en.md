@@ -64,4 +64,6 @@ In Affinity, color adjustment was kept deliberately minimal to respect the narro
 
 ## Result
 
+![Carina Nebula (NGC 3372) in narrowband H-alpha and OIII, showing the X-shaped structure with Eta Carinae at the center](ngc_3372_img.webp)
+
 Carina's characteristic "X" structure is well revealed, with four arms of nebulosity opening outward from Eta Carinae. The dark dust filaments — stellar nursery pillars — show good contrast against the surrounding H-alpha emission. A future session with 60 to 80 frames should reveal the outer extensions of the nebula and finer detail in the pillars further from the center.
