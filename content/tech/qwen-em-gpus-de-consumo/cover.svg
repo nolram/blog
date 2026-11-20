@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" font-family="ui-sans-serif, system-ui, 'Segoe UI', Roboto, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1e2530"/>
+      <stop offset="1" stop-color="#161b24"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#7dd3fc"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="675" fill="url(#bg)"/>
+
+  <!-- Title -->
+  <text x="600" y="58" text-anchor="middle" fill="#e2e8f0" font-size="30" font-weight="700">Qwen em GPUs de consumo</text>
+  <text x="600" y="88" text-anchor="middle" fill="#94a3b8" font-size="16">Quantização, VRAM e tok/s — medidos nas duas placas, não estimados</text>
+
+  <!-- ===== Nó A (left) ===== -->
+  <g filter="url(#shadow)">
+    <rect x="70" y="150" width="470" height="300" rx="14" fill="#232c3a" stroke="#3b4a61" stroke-width="1.5"/>
+  </g>
+  <text x="305" y="186" text-anchor="middle" fill="#e2e8f0" font-size="20" font-weight="700">Nó A — 12 GB de VRAM</text>
+  <text x="305" y="210" text-anchor="middle" fill="#94a3b8" font-size="13">RTX 4070 Ti · 121 GiB de DDR4 · CPU Zen 3 sem AVX-512</text>
+
+  <rect x="95" y="232" width="420" height="52" rx="9" fill="#1a212d" stroke="#3b4a61"/>
+  <text x="305" y="254" text-anchor="middle" fill="#f0abfc" font-size="15" font-weight="700">MoE 125B · IQ3_XXS</text>
+  <text x="305" y="273" text-anchor="middle" fill="#64748b" font-size="12">76,3 GB no disco — não cabe na placa, cabe na RAM</text>
+
+  <rect x="95" y="296" width="200" height="66" rx="9" fill="#16202e" stroke="#38bdf8" stroke-width="1.2"/>
+  <text x="195" y="322" text-anchor="middle" fill="#7dd3fc" font-size="24" font-weight="700">42,8</text>
+  <text x="195" y="344" text-anchor="middle" fill="#64748b" font-size="11.5">tok/s decode (mediana)</text>
+
+  <rect x="315" y="296" width="200" height="66" rx="9" fill="#16202e" stroke="#38bdf8" stroke-width="1.2"/>
+  <text x="415" y="322" text-anchor="middle" fill="#7dd3fc" font-size="24" font-weight="700">40–53%</text>
+  <text x="415" y="344" text-anchor="middle" fill="#64748b" font-size="11.5">acerto do cache de experts</text>
+
+  <text x="305" y="390" text-anchor="middle" fill="#fca5a5" font-size="13" font-weight="600">o gargalo é a taxa de acerto, não o PCIe</text>
+  <text x="305" y="415" text-anchor="middle" fill="#64748b" font-size="11.5">arena de experts em RAM: 40,9 GiB · janela 128k</text>
+
+  <!-- ===== Swap arrows (center) ===== -->
+  <g filter="url(#shadow)">
+    <rect x="560" y="255" width="80" height="90" rx="12" fill="#0f2438" stroke="#38bdf8" stroke-width="1.5"/>
+  </g>
+  <text x="600" y="292" text-anchor="middle" fill="#7dd3fc" font-size="30" font-weight="700">⇄</text>
+  <text x="600" y="315" text-anchor="middle" fill="#94a3b8" font-size="10.5">a inversão</text>
+  <text x="600" y="330" text-anchor="middle" fill="#94a3b8" font-size="10.5">é o ponto</text>
+
+  <!-- ===== Nó B (right) ===== -->
+  <g filter="url(#shadow)">
+    <rect x="660" y="150" width="470" height="300" rx="14" fill="#232c3a" stroke="#3b4a61" stroke-width="1.5"/>
+  </g>
+  <text x="895" y="186" text-anchor="middle" fill="#e2e8f0" font-size="20" font-weight="700">Nó B — 32 GB de VRAM</text>
+  <text x="895" y="210" text-anchor="middle" fill="#94a3b8" font-size="13">RTX 5090 · 60,5 GiB de DDR5 · CPU com AVX-512</text>
+
+  <rect x="685" y="232" width="420" height="52" rx="9" fill="#1a212d" stroke="#3b4a61"/>
+  <text x="895" y="254" text-anchor="middle" fill="#fbbf24" font-size="15" font-weight="700">Denso 27B · Q5_K_XL</text>
+  <text x="895" y="273" text-anchor="middle" fill="#64748b" font-size="12">inteiro em VRAM — compute-bound, não memory-bound</text>
+
+  <rect x="685" y="296" width="200" height="66" rx="9" fill="#16202e" stroke="#34d399" stroke-width="1.2"/>
+  <text x="785" y="322" text-anchor="middle" fill="#6ee7b7" font-size="24" font-weight="700">68,9</text>
+  <text x="785" y="344" text-anchor="middle" fill="#64748b" font-size="11.5">tok/s decode (20/11/2026)</text>
+
+  <rect x="905" y="296" width="200" height="66" rx="9" fill="#16202e" stroke="#34d399" stroke-width="1.2"/>
+  <text x="1005" y="322" text-anchor="middle" fill="#6ee7b7" font-size="24" font-weight="700">59 ms</text>
+  <text x="1005" y="344" text-anchor="middle" fill="#64748b" font-size="11.5">TTFT em prompt curto</text>
+
+  <text x="895" y="390" text-anchor="middle" fill="#fca5a5" font-size="13" font-weight="600">mas 7,2 s de prefill em 25k tokens</text>
+  <text x="895" y="415" text-anchor="middle" fill="#64748b" font-size="11.5">78 ms com o prefixo em cache — 93× de diferença</text>
+
+  <!-- Footer -->
+  <line x1="70" y1="475" x2="1130" y2="475" stroke="#2b3648" stroke-width="1"/>
+  <text x="70" y="508" fill="#cbd5e1" font-size="15" font-weight="600">Mais VRAM não te dá o modelo grande. Mais RAM te dá.</text>
+  <text x="70" y="534" fill="#94a3b8" font-size="13">Latência local é propriedade do cache, não da placa — e 74,3% das minhas conversas saíram daqui.</text>
+  <text x="70" y="566" fill="#64748b" font-size="12">Nomes de host omitidos · nenhum número herdado de documentação · toda medição datada no texto</text>
+  <text x="1130" y="640" text-anchor="end" fill="#475569" font-size="11">blog.nolram.dev · 2026</text>
+</svg>
