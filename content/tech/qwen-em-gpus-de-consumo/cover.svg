@@ -68,12 +68,12 @@
   <text x="1005" y="344" text-anchor="middle" fill="#64748b" font-size="11.5">TTFT em prompt curto</text>
 
   <text x="895" y="390" text-anchor="middle" fill="#fca5a5" font-size="13" font-weight="600">mas 7,2 s de prefill em 25k tokens</text>
-  <text x="895" y="415" text-anchor="middle" fill="#64748b" font-size="11.5">78 ms com o prefixo em cache — 92× de diferença</text>
+  <text x="895" y="415" text-anchor="middle" fill="#64748b" font-size="11.5">78 ms com o prefixo em cache — 93× de diferença</text>
 
   <!-- Footer -->
   <line x1="70" y1="475" x2="1130" y2="475" stroke="#2b3648" stroke-width="1"/>
   <text x="70" y="508" fill="#cbd5e1" font-size="15" font-weight="600">Mais VRAM não te dá o modelo grande. Mais RAM te dá.</text>
-  <text x="70" y="534" fill="#94a3b8" font-size="13">Latência local é propriedade do cache, não da placa — e 86,6% das minhas conversas saíram daqui.</text>
+  <text x="70" y="534" fill="#94a3b8" font-size="13">Latência local é propriedade do cache, não da placa — e 74,3% das minhas conversas saíram daqui.</text>
   <text x="70" y="566" fill="#64748b" font-size="12">Nomes de host omitidos · nenhum número herdado de documentação · toda medição datada no texto</text>
   <text x="1130" y="640" text-anchor="end" fill="#475569" font-size="11">blog.nolram.dev · 2026</text>
 </svg>

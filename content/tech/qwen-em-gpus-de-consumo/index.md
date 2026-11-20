@@ -11,7 +11,7 @@ tech_stack: ["Qwen", "llama.cpp", "Strata", "K3s", "Open WebUI", "NVIDIA", "RTX 
 github: "https://github.com/nolram/architecture-diagrams"
 status: "in-progress"
 cover:
-  image: "cover.svg"
+  image: "cover.png"
   alt: "Dois nós de cluster com GPUs de gerações diferentes servindo modelos Qwen: RTX 4070 Ti de 12 GB rodando um MoE de 125B via Strata e RTX 5090 de 32 GB rodando um denso de 27B via llama.cpp"
 ---
 
@@ -56,7 +56,7 @@ Duas regras antes da tabela: todo número medido nesta sessão está marcado com
 | Motor | llama.cpp `server-cuda13-b12019` | Strata `0.2.13-cuda13` / engine `0.1.59 (cuda)` |
 | GPU | RTX 5090 32 GB | RTX 4070 Ti 12 GB |
 | Quantização | Q5_K_XL | UD-IQ3_XXS |
-| Pesos no disco | — | 76,3 GB |
+| Pesos no disco | — | 83,6 GB |
 | **Decode** | **68,9 tok/s** | **42,8 tok/s** (mediana de 53 sessões, 12/nov) |
 | **TTFT** (prompt de 4 tok) | **59 ms** (mediana de 10) | não medido nesta sessão |
 | **Prefill** (25.320 tok frios) | **3.680 tok/s** → 6,9 s | não medido nesta sessão |
@@ -68,7 +68,7 @@ Os detalhes que valem a leitura:
 
 E quase ficou de fora deste post por erro de instrumento. A primeira versão do script de prefill pedia os contadores do servidor por um nome que não existe neste build — `llama:prompt_eval_seconds_total`, quando a métrica aqui se chama `llamacpp:prompt_seconds_total`. A regex não casava, a função devolvia zero e o relatório imprimia `0 t em 0.00 s` sem reclamar. Eu já tinha escrito **3.514 tok/s** no rascunho, e só bati o olho nessa conta ao auditar o post: esse número e os 93,5% não estavam em artefato nenhum. Re-medido com o nome certo, o frio dá **3.680 tok/s em 6,88 s para 25.320 tokens**, e o reuso quente é **100%**, não os 93,5% anotados. O hábito que ficou: o modo de falha silenciosa de uma regex em cima de `/metrics` é devolver zero, não devolver erro.
 
-**"6B ativos" não significa 6 GB.** É o erro de leitura mais comum em MoE, e eu cometi ele. O servidor precisa de acesso a todos os experts, mais a tabela de n-gram de ~51B de parâmetros. A esparsidade reduz FLOPs, não memória. O que torna o 125B viável numa 4070 Ti é o Strata fazer paging: uma arena de experts em RAM — o discovery de 4 de novembro media **40,9 GiB** de arena, com **32.768** tokens de KV residentes em VRAM — e um cache quente dentro da placa. Aqui cabe uma correção minha: esse cache media 4,1 GiB no engine de novembro inicial, e no boot limpo de 12 de novembro, já no engine atual, ele aparece dimensionado em **3,17 GiB com 1.648 experts residentes**. É o mesmo mecanismo, medido duas vezes, com número diferente — e é exatamente por isso que cada medida deste post tem data. Os 76,3 GB de pesos nunca couberam inteiros em lugar nenhum — nem nos 121 GiB de RAM, onde, somados aos ~45 GiB que o host já usa, estouram a máquina e passam a viver de page cache no NVMe.
+**"6B ativos" não significa 6 GB.** É o erro de leitura mais comum em MoE, e eu cometi ele. O servidor precisa de acesso a todos os experts, mais a tabela de n-gram de ~51B de parâmetros. A esparsidade reduz FLOPs, não memória. O que torna o 125B viável numa 4070 Ti é o Strata fazer paging: uma arena de experts em RAM — o discovery de 4 de novembro media **40,9 GiB** de arena, com **32.768** tokens de KV residentes em VRAM — e um cache quente dentro da placa. Aqui cabe uma correção minha: esse cache media 4,1 GiB no engine de novembro inicial, e no boot limpo de 12 de novembro, já no engine atual, ele aparece dimensionado em **3,17 GiB com 1.648 experts residentes**. É o mesmo mecanismo, medido duas vezes, com número diferente — e é exatamente por isso que cada medida deste post tem data. Os 83,6 GB de pesos nunca couberam inteiros em lugar nenhum — nem nos 121 GiB de RAM, onde, somados aos ~45 GiB que o host já usa, estouram a máquina e passam a viver de page cache no NVMe.
 
 E é aqui que a inversão das GPUs faz sentido. O 125B é *memory-bound* de um jeito que RAM grande resolve: ele come 121 GiB de DDR4, e uma placa de 32 GB não teria o que fazer com ele. O 27B denso é *compute-bound*: cabe inteiro em VRAM e só rende com largura de banda de memória de vídeo, que é justamente onde a 5090 ganha. Em miúdos: **mais VRAM não te dá o modelo grande; mais RAM te dá.**
 
@@ -100,7 +100,7 @@ Conclusão contra-intuitiva: local não é "latência baixa" por natureza. Com c
 
 ## A API oficial como última camada
 
-A stack tem a API oficial do Qwen configurada na interface, ao lado dos dois endpoints locais. Não é enfeite: na contagem que rodei hoje, `qwen/qwen3.8-27b` — a versão hospedada — produziu 41 respostas em 9 conversas. É o terceiro jeito de instanciar o mesmo modelo base nesta casa: Q5_K_XL em VRAM própria, IQ3_XXS em arena de RAM, e a variante hospedada num servidor de terceiros, cuja quantização eu não vejo de fora.
+A stack tem a API oficial do Qwen configurada na interface, ao lado dos dois endpoints locais. Não é enfeite: na contagem que rodei hoje, `qwen/qwen3.8-27b` — a versão hospedada — produziu 22 respostas em 9 conversas. É o terceiro jeito de instanciar o mesmo modelo base nesta casa: Q5_K_XL em VRAM própria, IQ3_XXS em arena de RAM, e a variante hospedada num servidor de terceiros, cuja quantização eu não vejo de fora.
 
 O critério de escolha é mecânico, não estético: se a tarefa precisa de mais contexto do que a janela local comporta, ou de uma janela de raciocínio que eu não sustento em tempo útil no hardware que tenho, ela sai de casa. Não vou comparar qualidade entre os três aqui, porque não tenho número que sustente a comparação, e opinião sobre qualidade de modelo não é dado.
 
